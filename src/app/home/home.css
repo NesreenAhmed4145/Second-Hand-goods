@@ -1,0 +1,70 @@
+
+
+.banner {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* optional */
+  display: block;
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.section-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.view-all {
+  color: #0A66FF;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.categories {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.cat-card {
+  min-width: 150px;
+  background: #f7f7f7;
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.cat-card:hover {
+  transform: translateY(-3px);
+}
+
+.cat-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.cat-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
