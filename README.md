@@ -1,59 +1,39 @@
-# SecondHand2
+# [Second-Hand-goods] - Angular & Firebase Marketplace
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
+A modern, responsive e-commerce and listing platform built with **Angular** and **Firebase**. This application allows users to create accounts, post items for sale, manage their profiles, save items to a wishlist, and leave real-time reviews and ratings on products.
 
-## Development server
+## ✨ Features
 
-To start a local development server, run:
+* **User Authentication:** Secure registration and login system using Firebase Authentication.
+* **Profile Management:** Users can view their details, active listings, and purchase history.
+* **Product Listings:** Users can seamlessly create, browse, and delete product listings.
+* **Real-Time Reviews & Ratings:** An interactive feedback system where users can leave 1-5 star ratings and comments that update instantly on the product page.
+* **Wishlist System:** Users can save their favorite items to a personalized wishlist.
+* **Real-Time Database:** Utilizes Firebase Cloud Firestore for instant data synchronization across the app.
+* **Standalone Components:** Built using modern Angular features (v14+ Standalone Components) for a cleaner and more modular architecture.
 
-```bash
-ng serve
-```
+## 🛠️ Tech Stack & Tools
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**Frontend:**
+* [Angular](https://angular.io/) - Core framework (Using Standalone Components, Reactive Forms, and Routing)
+* **HTML5 & CSS3** - Responsive UI design
+* **RxJS** - For reactive programming and handling asynchronous data streams
 
-## Code scaffolding
+**Backend as a Service (BaaS):**
+* [Firebase Authentication](https://firebase.google.com/docs/auth) - Handling user sign-ups, logins, and session management
+* [Cloud Firestore](https://firebase.google.com/docs/firestore) - NoSQL document database utilizing both the Modular SDK and Compat SDK for real-time CRUD operations
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
+## 🚀 Getting Started
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Prerequisites
+Make sure you have the following installed on your machine:
+* [Node.js](https://nodejs.org/) (v18 or higher recommended)
+* [Angular CLI](https://angular.io/cli) (`npm install -g @angular/cli`)
 
-```bash
-ng generate --help
-```
+### Installation
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/](https://github.com/)[Your-GitHub-Username]/[Repository-Name].git
+   cd [Repository-Name]
