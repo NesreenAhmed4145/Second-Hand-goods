@@ -1,1 +1,91 @@
-<p>listing-details works!</p>
+<div class="details-page-container" *ngIf="listing">
+
+  <div class="main-content">
+    
+    <div class="image-gallery">
+      <div class="main-image-wrapper">
+        <button class="nav-btn left"><i class="fas fa-chevron-left"></i></button>
+        <img [src]="listing.img" alt="Product Image">
+        <button class="nav-btn right"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <div class="description-box">
+      <h3>Description</h3>
+      <p>{{ listing.description }}</p>
+      
+      <div class="details-grid">
+        <div class="detail-item">
+          <span class="label">Location:</span> 
+          <span class="value">{{ listing.location }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Posted:</span> 
+          <span class="value">Just now</span>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <app-reviews [listingId]="listing.id || ''"></app-reviews>
+
+  </div>
+
+  <div class="sidebar">
+    
+    <div class="sidebar-card price-card">
+      <h2 class="price-tag">{{ listing.price }} {{ listing.currency }}</h2>
+      <a href="#" class="notify-link">Notify me if price drops</a>
+
+      <a [href]="'tel:' + listing.phoneNumber" class="action-btn btn-blue">
+        <i class="fas fa-phone-alt"></i> {{ listing.phoneNumber }}
+      </a>
+
+      <button class="action-btn btn-white">
+        <i class="fas fa-comment-dots"></i> Chat
+      </button>
+
+      <button (click)="toggleWishlist()" [class.wished]="isWished" class="heart-btn">
+    {{ isWished ? '❤️' : '♡' }} 
+</button>
+
+<div class="heart-container" (click)="toggleWishlist()">
+    </div>
+
+    
+      <div class="safety-tips">
+        <h4>General Tips</h4>
+        <ul>
+          <li>Only meet in public places</li>
+          <li>Never pay or transfer money in advance</li>
+          <li>Inspect the product before you buy it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-card seller-card">
+      <h3>Listing Owner</h3>
+      
+      <div class="seller-info">
+        <div class="avatar-circle">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="seller-text">
+          <h4>{{ listing.sellerName || 'Seller Name' }}</h4> 
+          <div class="stars">
+            ★★★★★ <span class="count">({{ listing.sellerRating || 0 }})</span>
+          </div>
+          <small>Member Since {{ listing.memberSince || '2024' }}</small>
+        </div>
+      </div>
+
+      <button class="follow-btn"><i class="fas fa-plus"></i> Follow</button>
+    </div>
+
+  </div>
+
+</div>
+
+<div *ngIf="!listing" class="loading">
+  Loading details...
+</div>

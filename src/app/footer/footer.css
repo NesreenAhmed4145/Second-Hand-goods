@@ -1,0 +1,101 @@
+.site-footer {
+  background-color: #f4f6f8; /* Light gray background match */
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 50px; /* Pushes footer to bottom */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Columns */
+.footer-column {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* Brand Column Specifics */
+.brand-column {
+  flex: 0 0 220px; /* Fixed width for the logo column */
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.copyright {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Social Colors */
+.fb { background-color: #3b5998; }
+.x-twitter { background-color: #000; }
+.insta { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+.yt { background-color: #ff0000; }
+.li { background-color: #0077b5; }
+
+/* Links Columns */
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #007bff; /* OpenSooq Blue hover effect */
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+}

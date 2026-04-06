@@ -1,0 +1,105 @@
+/* 1. تنسيق الصفحة بالكامل عشان نوسط الفورم */
+:host {
+  display: flex;
+  justify-content: center; /* توسيط أفقي */
+  align-items: center;     /* توسيط عمودي */
+  min-height: 85vh;        /* ارتفاع الصفحة عشان التوسيط يبان */
+  background-color: #f4f7f6; /* لون خلفية هادي للصفحة كلها */
+}
+
+/* 2. تنسيق الكارت (الصندوق الأبيض) */
+.register-container {
+  background-color: #ffffff;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px; /* عشان ميكونش عريض أوي */
+  border-radius: 12px; /* حواف دائرية */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* ظل خفيف شيك */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* عنوان الصفحة */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* 3. تنسيق الحقول (Input Fields) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 600;
+}
+
+input.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* تدوير حواف الـ input */
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* مهم عشان الحجم ميزدش عن الصندوق */
+}
+
+/* لما تضغطي جوه الحقل يغير لونه */
+input.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* 4. تنسيق رسائل الخطأ */
+.text-danger {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
+/* 5. زرار التسجيل */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff; /* لون أزرق مميز */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3; /* تغميق اللون عند الوقوف عليه */
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 6. رابط تسجيل الدخول تحت */
+p {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}

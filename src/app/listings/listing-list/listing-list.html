@@ -1,1 +1,90 @@
-<p>listing-list works!</p>
+<div class="page-layout">
+
+  <div class="filters-sidebar">
+    <h3>Filters</h3>
+    <div class="filter-group">
+      <label>Location</label>
+      <select (change)="filterLocation($event)">
+        <option value="">All Egypt</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Giza">Giza</option>
+        <option value="Alexandria">Alexandria</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label>Max Price</label>
+      <input type="number" placeholder="E.g. 1000" (input)="filterPrice($event)">
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <div class="listing-card" 
+         *ngFor="let item of filteredListings" 
+         [routerLink]="['/listing-details', item.id]"
+         style="cursor: pointer;">
+      
+      <div class="card-image">
+        <img [src]="item.img" [alt]="item.name">
+        <div class="badge-count">
+          <i class="fas fa-camera"></i> 5
+        </div>
+      </div>
+
+      <div class="card-content">
+        
+        <div class="top-section">
+          <h3 class="title">{{ item.name }}</h3>
+          
+          <div class="tags">
+            <span>{{ item.location }}</span>
+          </div>
+          
+          <div *ngIf="item.hasDelivery" class="badge-delivery">
+            <i class="fas fa-truck"></i> Delivery
+          </div>
+          
+          <p class="location-text">{{ item.location }}</p>
+        </div>
+
+        <div class="actions-row">
+          
+          <div class="buttons-group">
+            <a [href]="'tel:' + item.phoneNumber" class="btn btn-call" (click)="$event.stopPropagation()">
+              <i class="fas fa-phone-alt"></i> {{ item.phoneNumber }}
+            </a>
+
+            <button class="btn btn-chat" (click)="$event.stopPropagation()">
+              <i class="fas fa-comment-dots"></i> Chat
+            </button>
+            
+            <button 
+                class="btn btn-wishlist" 
+                (click)="toggleWishlist(item.id!, $event)" 
+                *ngIf="wishedListingIds$ | async as wishedIds"
+                [class.wished]="$any(wishedIds).includes(item.id)">
+                
+                <ng-container *ngIf="$any(wishedIds).includes(item.id); else emptyHeart">
+                    <i class="fas fa-heart"></i>
+                </ng-container>
+                <ng-template #emptyHeart>
+                    <i class="far fa-heart"></i>
+                </ng-template>
+            </button>
+          </div>
+
+          <div class="price">
+            {{ item.price | number }} EGP
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="filteredListings.length === 0" class="no-data">
+      <p>No listings found matching your criteria.</p>
+    </div>
+
+  </div>
+</div>

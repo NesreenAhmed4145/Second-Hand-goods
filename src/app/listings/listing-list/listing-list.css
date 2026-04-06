@@ -1,0 +1,443 @@
+.container {
+  max-width: 950px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.listing-card {
+  display: flex;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  height: auto; /* Fixed height for consistency */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- LEFT IMAGE SECTION --- */
+.card-image {
+  width: 280px;
+  position: relative; /* Allows absolute positioning of badges */
+  background-color: #f0f0f0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Verified Badge (Top Left) */
+.badge-verified {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #007bff; /* Blue */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Image Count (Bottom Left) */
+.badge-count {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* --- RIGHT CONTENT SECTION --- */
+.card-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Spreads content out vertically */
+}
+
+.title {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.description {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Delivery Badge */
+.badge-delivery {
+  background-color: #fff3cd; /* Light Yellow */
+  color: #222;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin-bottom: 5px;
+}
+
+.badge-delivery i {
+  color: #f0ad4e; /* Darker yellow/orange icon */
+}
+
+.location {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* --- BOTTOM ROW (Buttons + Price) --- */
+.actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  text-decoration: none; /* For the anchor tag */
+}
+
+/* Call Button (Blue) */
+.btn-call {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-call:hover {
+  background-color: #0056b3;
+}
+
+/* Chat Button (White outline) */
+.btn-chat {
+  background-color: white;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.btn-chat:hover {
+  background-color: #f0f8ff;
+}
+
+/* Heart Icon */
+.btn-heart {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  color: #d32f2f;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Price */
+.price {
+  color: #d32f2f; /* Red */
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .listing-card {
+    flex-direction: column;
+    height: auto;
+  }
+  .card-image {
+    width: 100%;
+    height: 200px;
+  }
+  .actions-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .price {
+    align-self: flex-end;
+  }
+}
+
+
+.page-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.filters-sidebar {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-group select, 
+.filter-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container {
+  flex: 1; /* Takes remaining space */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .page-layout {
+    flex-direction: column;
+  }
+  .filters-sidebar {
+    width: 100%;
+  }
+}
+
+
+.wishlist-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em; /* Adjust size as needed */
+    color: #ccc; /* Default color (empty heart) */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+.wishlist-btn.wished {
+    color: #ff0000; /* Red color for wished items */
+}
+
+
+
+/* Layout containers */
+.page-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f5f7; /* Light gray background like OpenSooq */
+  min-height: 100vh;
+}
+
+.filters-sidebar {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* --- THE CARD DESIGN --- */
+.listing-card {
+  display: flex; /* Horizontal Layout */
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  height: 220px; /* Fixed height for consistency */
+}
+
+.listing-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Left Image Section */
+.card-image {
+  width: 300px; /* Fixed width for image */
+  position: relative;
+  flex-shrink: 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-count {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Right Content Section */
+.card-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.tags {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.badge-delivery {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #fef3c7; /* Light yellow */
+  color: #d97706; /* Dark yellow/orange */
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.location-text {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+}
+
+/* --- ACTION ROW (Buttons & Price) --- */
+.actions-row {
+  display: flex;
+  justify-content: space-between; /* Buttons left, Price right */
+  align-items: center;
+  margin-top: auto; /* Push to bottom */
+}
+
+.buttons-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Base Button Styles */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+/* 1. Call Button (Blue Background) */
+.btn-call {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+}
+
+.btn-call:hover {
+  background-color: #0056b3;
+}
+
+/* 2. Chat Button (White Background, Blue Border) */
+.btn-chat {
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-chat:hover {
+  background-color: #f0f8ff;
+}
+
+/* 3. Wishlist Button (Square/Icon only) */
+.btn-wishlist {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: #777;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+}
+
+.btn-wishlist:hover {
+  border-color: #999;
+}
+
+.btn-wishlist.wished {
+  color: #dc3545; /* Red heart */
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+/* Price Tag (Right Side) */
+.price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #dc3545; /* Red Price */
+}

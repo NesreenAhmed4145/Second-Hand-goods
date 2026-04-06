@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateListing } from './create-listing';
+import { ListingCreateComponent } from './listing-create';
 
 describe('CreateListing', () => {
-  let component: CreateListing;
-  let fixture: ComponentFixture<CreateListing>;
+  let component: ListingCreateComponent;
+  let fixture: ComponentFixture<ListingCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CreateListing]
+      declarations: [ListingCreateComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CreateListing);
+    fixture = TestBed.createComponent(ListingCreateComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

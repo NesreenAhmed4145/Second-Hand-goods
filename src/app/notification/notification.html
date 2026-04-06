@@ -1,0 +1,54 @@
+<div class="notifications-page">
+  
+  <div class="page-header">
+    <h2>Notifications</h2>
+    
+    <div class="filters-bar">
+      <div class="filter-group">
+        <span class="filter-label">Status: </span>
+        
+        <strong 
+          [class.active-filter]="currentFilter === 'All'" 
+          (click)="setFilter('All')"
+          style="cursor: pointer; margin: 0 5px;">
+          All
+        </strong>
+
+        <strong 
+          [class.active-filter]="currentFilter === 'Unread'" 
+          (click)="setFilter('Unread')"
+          style="cursor: pointer; margin: 0 5px;">
+          Unread Only
+        </strong>
+      </div>
+
+      
+  </div>
+
+  <div class="notif-list">
+    
+    <div class="notif-card" *ngFor="let item of filteredNotifications">
+      
+      <div class="card-content">
+        <span class="time-text">{{ item.time }}</span>
+        <h3 class="notif-title">{{ item.title }}</h3>
+        <p class="notif-body">{{ item.body }}</p>
+        
+        <button [class]="'action-btn ' + item.btnColor">
+          {{ item.btnText }}
+        </button>
+      </div>
+
+      <div class="status-indicator" *ngIf="item.isUnread">
+        <span class="blue-dot">●</span>
+      </div>
+
+    </div>
+
+    <div *ngIf="filteredNotifications.length === 0" style="padding: 20px; text-align: center; color: #777;">
+      No notifications found.
+    </div>
+
+  </div>
+
+</div>

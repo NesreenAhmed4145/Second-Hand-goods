@@ -1,1 +1,110 @@
-<p>profile works!</p>
+<div class="profile-layout" *ngIf="userProfile; else loading">
+
+  <aside class="profile-sidebar">
+    <div class="user-card">
+      <div class="card-header-bg"></div>
+      <div class="avatar">{{ userProfile.username.charAt(0) | uppercase }}</div>
+      
+      <div class="card-body">
+        <ng-container *ngIf="!isEditing">
+          <h2 class="username">{{ userProfile.username | titlecase }}</h2>
+          <p class="role">Member</p>
+          <p class="join-date">Joined {{ userProfile.joinedDate?.toDate() | date:'mediumDate' }}</p>
+
+          <div class="contact-info">
+            <div class="info-row"><span class="icon">📧</span> {{ userProfile.email }}</div>
+            <div class="info-row"><span class="icon">📱</span> {{ userProfile.phoneNumber || 'No phone' }}</div>
+          </div>
+        </ng-container>
+
+        <form [formGroup]="editForm" *ngIf="isEditing" (ngSubmit)="saveProfile()" class="edit-form">
+          <label>Full Name</label>
+          <input type="text" formControlName="username" class="edit-input">
+          <label>Phone</label>
+          <input type="text" formControlName="phone" class="edit-input">
+          <p class="note">Email cannot be changed.</p>
+        </form>
+
+       
+<div class="action-buttons">
+<ng-container *ngIf="!isEditing">
+<button (click)="toggleEdit()" class="btn btn-outline">Edit Profile</button>
+
+<button (click)="logout()" class="btn btn-logout">Logout</button>
+</ng-container>
+
+<div *ngIf="isEditing" class="edit-actions">
+<button (click)="saveProfile()" [disabled]="editForm.invalid" class="btn btn-primary">Save</button>
+<button (click)="toggleEdit()" class="btn btn-secondary">Cancel</button>
+</div>
+</div>
+
+
+      </div>
+    </div>
+  </aside>
+
+  <main class="profile-content">
+    
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-num">{{ myListings.length }}</span><span class="stat-label">Listings</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">{{ myPurchases.length }}</span><span class="stat-label">Purchases</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">5.0 ⭐</span><span class="stat-label">Rating</span>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="tabs-header">
+        <button class="tab-btn" [class.active]="activeTab === 'listings'" (click)="setActiveTab('listings')">My Listings</button>
+        <button class="tab-btn" [class.active]="activeTab === 'purchases'" (click)="setActiveTab('purchases')">My Purchases</button>
+        <button class="tab-btn" [class.active]="activeTab === 'reviews'" (click)="setActiveTab('reviews')">Reviews</button>
+      </div>
+
+      <div class="tab-body">
+        
+        <div *ngIf="activeTab === 'listings'" class="fade-in">
+          <div class="listing-item" *ngFor="let item of myListings">
+             <div class="item-details">
+                <h4>{{ item.title }}</h4>
+                <div class="meta"><span class="price">{{ item.price }} EGP</span> • <span class="date">{{ item.date }}</span></div>
+             </div>
+             <div class="item-actions">
+               <button class="icon-btn delete" (click)="deleteItem(item.id)">🗑</button>
+             </div>
+          </div>
+          <p *ngIf="myListings.length === 0" class="no-data">No listings yet.</p>
+        </div>
+
+        <div *ngIf="activeTab === 'purchases'" class="fade-in">
+          <div class="listing-item" *ngFor="let item of myPurchases">
+             <div class="item-details">
+                <h4>{{ item.title }}</h4>
+                <div class="meta">
+                    <span class="price">{{ item.price }} EGP</span> • 
+                    <span class="seller">Seller: {{ item.seller }}</span>
+                </div>
+             </div>
+             <div class="item-status"><span class="badge sold">Bought</span></div>
+          </div>
+          <p *ngIf="myPurchases.length === 0" class="no-data">No purchases yet.</p>
+        </div>
+
+        <div *ngIf="activeTab === 'reviews'" class="fade-in">
+          <div class="review-item" *ngFor="let review of myReviews">
+            <div class="review-header"><strong>{{ review.user }}</strong> <span class="stars">⭐ {{ review.rating }}</span></div>
+            <p class="comment">"{{ review.comment }}"</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<ng-template #loading><div class="loading-screen">Loading...</div></ng-template>

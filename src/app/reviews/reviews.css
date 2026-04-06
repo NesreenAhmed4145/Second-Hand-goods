@@ -1,0 +1,70 @@
+.reviews-section {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+/* Big Input Stars */
+.rating-stars span {
+  font-size: 30px;
+  cursor: pointer;
+  color: #ccc; /* Gray */
+  margin-right: 5px;
+}
+
+.rating-stars span.active {
+  color: #ffc107; /* Gold */
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Display Stars in List */
+.user-rating span {
+  color: #e0e0e0;
+  font-size: 18px;
+}
+.user-rating span.gold {
+  color: #ffc107;
+}
+
+.review-card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.date {
+  color: #999;
+  font-size: 12px;
+}

@@ -1,39 +1,83 @@
 <nav class="navbar">
 
   <!-- Left: Logo -->
-   
-<img src="https://opensooqui2.os-cdn.com/prod/public/images/openSooqLogo/openSooqLogoMobile.svg"
- width="90" height="31" alt="OpenSooq" loading="lazy" class="noImgFit
- ">
+<a routerLink="/">
+  <img 
+    src="https://opensooqui2.os-cdn.com/prod/public/images/openSooqLogo/openSooqLogoMobile.svg"
+    width="90" 
+    height="31" 
+    alt="OpenSooq" 
+    loading="lazy" 
+    class="noImgFit">
+</a>
 
   <!-- Search Section -->
-  <div class="search-section">
-    <input type="text" placeholder="Search">
-
- 
-    <button class="search-btn">Search</button>
+<div class="search-container">
+  
+  <div class="search-bar">
+    <input 
+      #searchInput 
+      type="text" 
+      placeholder="Search for Anything..." 
+      (keyup)="onSearchInput(searchInput.value)" 
+      (keyup.enter)="search(searchInput.value)"
+      autocomplete="off"> <button class="btn-search" (click)="search(searchInput.value)">
+      Search
+    </button>
   </div>
+
+  <div class="search-dropdown" *ngIf="showDropdown">
+    <ul>
+      <li *ngFor="let item of filteredSuggestions" (click)="selectProduct(item.name)">
+        
+        <img [src]="item.img" class="thumb">
+        
+        <div class="info">
+          <span class="name">{{ item.name }}</span>
+          <span class="price">{{ item.price }} EGP</span>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+
+</div>
 
   <!-- Icons -->
   <div class="icons">
-    <span class="icon">♡</span>
-    <span class="icon">📄</span>
+    <a class="icon" routerLink="/wishlist" style="text-decoration: none;">
+    <span class="icon" style="font-size: 30px;">♡</span>
+    </a>
 
-    <div class="notification">
-      🔔
-      <span class="badge">1</span>
-    </div>
-
-    <div class="notification">
-      💬
-      <span class="badge">1</span>
-    </div>
+ <a class="notification" routerLink="/notification" style="text-decoration: none;">
+   🔔
+  <span class="badge">1</span>
+ </a>
+ <a class="notification" routerLink="/chat" style="text-decoration: none;">
+   💬
+  <span class="badge">1</span>
+ </a>
   </div>
 
   <!-- Login -->
-  <a class="login-link" href="#">Login or Sign Up</a>
+<ng-container *ngIf="!isLoggedIn; else userLoggedIn">
+  <a class="login-link" routerLink="/login">Login or Sign Up</a>
+</ng-container>
+
+<ng-template #userLoggedIn>
+  <div class="user-actions">
+    <a routerLink="/Profile" class="icon profile-link" style="text-decoration: none;">
+      👤 </a>
+  
+  </div>
+</ng-template>
 
   <!-- Add Listing -->
-  <button class="add-listing">Add Listing</button>
+<button class="add-listing" (click)="addListingChecking()">
+  Add Listing
+</button>
+  <a routerLink="/analytics" class="nav-link">
+  <i class="fas fa-chart-line"></i> Dashboard
+</a>
 
 </nav>

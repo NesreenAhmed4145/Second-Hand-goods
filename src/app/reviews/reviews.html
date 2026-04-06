@@ -1,0 +1,43 @@
+<div class="reviews-section">
+  <h3>User Reviews & Feedback</h3>
+
+  <div class="write-box">
+    <div class="rating-stars">
+      <span *ngFor="let star of stars" 
+            (click)="setRating(star)" 
+            [class.active]="star <= newRating">
+        ★
+      </span>
+    </div>
+    
+    <textarea [(ngModel)]="newComment" placeholder="Write your feedback here..."></textarea>
+    
+    <button (click)="submitReview()" [disabled]="newRating === 0 || !newComment">
+      Submit Feedback
+    </button>
+  </div>
+
+  <hr>
+
+  <div class="review-list">
+    
+    <div class="review-card" *ngFor="let review of reviews">
+      
+      <div class="review-header">
+        <strong>{{ review.userName }}</strong>
+        <span class="date">{{ review.date | date:'shortDate' }}</span>
+      </div>
+      
+      <div class="user-rating">
+        <span *ngFor="let s of stars" [class.gold]="s <= review.rating">★</span>
+      </div>
+
+      <p class="comment-text">{{ review.comment }}</p>
+    </div>
+
+    <p *ngIf="reviews.length === 0" class="empty-msg">
+      No reviews yet. Be the first to write one!
+    </p>
+
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="analytics-container">
+  <h2>Seller Dashboard</h2>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <h3>Total Items Sold</h3>
+      <p class="number">{{ totalSold }}</p>
+    </div>
+    
+    <div class="stat-card">
+      <h3>Total Views</h3>
+      <p class="number">{{ totalViews }}</p>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <canvas baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [type]="'bar'">
+    </canvas>
+  </div>
+
+</div>

@@ -1,1 +1,46 @@
-<p>wishlist works!</p>
+<div class="wishlist-page">
+  <div class="container">
+    
+    <h2>❤️ My Saved Items</h2>
+
+    <div *ngIf="isLoading" class="loading-state">
+      <p>Loading your favorites...</p>
+    </div>
+
+    <ng-container *ngIf="wishedListings$ | async as listings">
+      
+      <div *ngIf="listings.length === 0 && !isLoading" class="empty-state">
+        <p>You haven't saved any items yet.</p>
+        <a routerLink="/" class="btn-browse">Browse Listings</a>
+      </div>
+
+      <div class="wishlist-grid">
+        <div class="listing-card" *ngFor="let item of listings" [routerLink]="['/listing-details', item.id]">
+          
+          <div class="card-image">
+            <img [src]="item.img" [alt]="item.name">
+          </div>
+
+          <div class="card-content">
+            <div class="top-info">
+              <h3 class="title">{{ item.name }}</h3>
+              <p class="location">{{ item.location }}</p>
+              <div class="price">{{ item.price | number }} EGP</div>
+            </div>
+
+            <div class="actions">
+              <button 
+                class="btn-remove" 
+                (click)="$event.stopPropagation(); onRemoveItem(item.id!)">
+                <i class="fas fa-trash"></i> Remove
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </ng-container>
+
+  </div>
+</div>

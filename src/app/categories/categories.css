@@ -1,0 +1,40 @@
+.container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: #f7f7fb;
+  border-radius: 15px;
+  padding: 18px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+}

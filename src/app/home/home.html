@@ -11,10 +11,13 @@
   <h2>OpenSooq Egypt</h2>
   <a class="view-all" href="#">View All →</a>
 </div>
-<!-- 
-<div class="categories">
-  <div class="cat-card" *ngFor="let c of categories">
-    <h4>{{ c.name }}</h4>
-    <img [src]="c.img" alt="{{ c.name }}">
+
+
+<div class="categories-container">
+  <div class="category-card" *ngFor="let cat of categories" [routerLink]="['/category', cat.id]">
+    
+    <img [src]="cat.img" [alt]="cat.name">
+    <h3>{{ cat.name }}</h3>
+    
   </div>
-</div> -->
+</div>

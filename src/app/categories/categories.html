@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="title">Categories</h2>
+
+  <div class="grid">
+    <div class="card" *ngFor="let cat of categories$ | async">
+      
+      <img [src]="cat.img" [alt]="cat.name">
+      
+      <h3>{{ cat.name }}</h3>
+    </div>
+  </div>
+</div>

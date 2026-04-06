@@ -1,0 +1,93 @@
+<div class="create-container">
+  <h2>Create a New Listing</h2>
+  
+  <form [formGroup]="listingForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" formControlName="title" placeholder="e.g. iPhone 14 Pro Max" />
+      <small class="error" *ngIf="listingForm.get('title')?.invalid && (listingForm.get('title')?.dirty || listingForm.get('title')?.touched)">
+        Title is required (min 5 characters).
+      </small>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group half">
+        <label for="price">Price (Numbers Only)</label>
+        <input id="price" type="number" formControlName="price" placeholder="45000" />
+        <small class="error" *ngIf="listingForm.get('price')?.invalid && (listingForm.get('price')?.dirty || listingForm.get('price')?.touched)">
+          Price must be numbers only (No commas).
+        </small>
+      </div>
+      
+      <div class="form-group half">
+        <label for="category">Select Category</label>
+        <select id="category" formControlName="category">
+          <option value="" disabled>-- Choose a category --</option>
+          <option *ngFor="let cat of categories" [value]="cat.id">
+            {{ cat.name }}
+          </option>
+        </select>
+        <small class="error" *ngIf="listingForm.get('category')?.invalid && listingForm.get('category')?.touched">
+          Category is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group half">
+        <label for="location">Location</label>
+        <input id="location" formControlName="location" placeholder="Cairo, Nasr City" />
+        <small class="error" *ngIf="listingForm.get('location')?.invalid && listingForm.get('location')?.touched">
+          Location is required.
+        </small>
+      </div>
+
+      <div class="form-group half">
+        <label for="phone">Phone Number</label>
+        <input id="phone" formControlName="phoneNumber" placeholder="010xxxxxxx" />
+        <small class="error" *ngIf="listingForm.get('phoneNumber')?.invalid && (listingForm.get('phoneNumber')?.dirty || listingForm.get('phoneNumber')?.touched)">
+          Phone must be numbers only.
+        </small>
+      </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group half">
+            <label for="sellerName">Seller Name</label>
+            <input id="sellerName" formControlName="sellerName" placeholder="e.g. Ahmed Ali" />
+            <small class="error" *ngIf="listingForm.get('sellerName')?.invalid && listingForm.get('sellerName')?.touched">
+                Your name is required.
+            </small>
+        </div>
+
+        <div class="form-group half">
+            <label for="img">Image Link (URL)</label>
+            <input id="img" formControlName="imgUrl" placeholder="https://example.com/image.jpg" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="desc">Description</label>
+      <textarea id="desc" formControlName="description" rows="4" placeholder="Describe your item..."></textarea>
+      <small class="error" *ngIf="listingForm.get('description')?.invalid && listingForm.get('description')?.touched">
+        Description is required.
+      </small>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="delivery" formControlName="hasDelivery" />
+      <label for="delivery">I can offer Delivery</label>
+    </div>
+
+    <button type="submit" [disabled]="!listingForm.valid" class="submit-btn">
+      Post Listing
+    </button>
+    
+    <p *ngIf="!listingForm.valid" style="color: red; text-align: center; margin-top: 10px;">
+      (Please fill out all required fields to enable the button)
+    </p>
+
+  </form>
+</div>

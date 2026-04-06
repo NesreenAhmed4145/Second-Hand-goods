@@ -1,1 +1,67 @@
-<p>chat works!</p>
+<div class="chat-container">
+
+  <div class="chat-header">
+    <div class="header-left">
+      <button class="back-btn">❮</button>
+      <div class="avatar-circle">
+        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="user-img">
+      </div>
+      <span class="username">Mohamed Ahmed</span>
+    </div>
+    
+    <div class="header-right">
+      <button class="icon-btn">📞</button>
+      <button class="icon-btn">⋮</button>
+    </div>
+  </div>
+
+  <div class="product-bar">
+    <img src="" alt="BMW" class="product-img">
+    <div class="product-details">
+      <span class="product-text">BMW 318 luxury 2017</span>
+    </div>
+  </div>
+
+  <div class="messages-list" #messagesContainer>
+    
+    <div class="tips-box">
+      <div class="tips-header">
+        <div class="alert-icon">!</div>
+        <strong>General Tips</strong>
+      </div>
+      <ul class="tips-list">
+        <li>Only meet in public places</li>
+        <li>Never pay or transfer money in advance</li>
+        <li>Inspect the product before you buy it</li>
+      </ul>
+    </div>
+
+    <div class="message-bubble" 
+         *ngFor="let msg of messages"
+         [class.my-message]="msg.user === user">
+      
+      <p>{{ msg.content }}</p>
+      <span class="time">{{ msg.createdAt | date:'shortTime' }}</span>
+      
+    </div>
+  </div>
+
+  <div class="chat-footer">
+    <div class="footer-icons">
+      <button class="footer-btn">📷</button>
+      <button class="footer-btn">📤</button>
+    </div>
+
+    <input type="text" 
+           class="chat-input"
+           [(ngModel)]="newMessage" 
+           placeholder="Message Text..."
+           (keyup.enter)="send()" 
+           [disabled]="sending">
+    
+    <button class="send-btn" (click)="send()" [disabled]="sending">
+      ➤
+    </button>
+  </div>
+
+</div>
